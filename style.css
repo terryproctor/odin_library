@@ -1,0 +1,19 @@
+body {
+    background-color: rgb(238, 238, 255);
+    padding: 0px;
+    margin: 0px;
+}
+
+.card {
+    border: solid 1px lightgrey;
+    background-color: rgb(135, 12, 236);
+    border-radius: 1rem;
+    min-height: 7rem;
+    max-width: 25%;
+    padding: 1rem;
+    color: white;
+}
+
+.list {
+    list-style: none;
+}
