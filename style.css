@@ -9,7 +9,8 @@ body {
     background-color: rgb(135, 12, 236);
     border-radius: 1rem;
     min-height: 7rem;
-    max-width: 25%;
+    min-width: 20%;
+    max-width: 27%;
     padding: 1rem;
     color: white;
 }
@@ -56,4 +57,15 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+    flex-wrap: wrap;
+    
 }
