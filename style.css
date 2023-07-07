@@ -10,8 +10,8 @@ body {
     border-radius: 1rem;
     min-height: 7rem;
     min-width: 20%;
-    max-width: 27%;
-    padding: 1rem;
+
+    padding: 1.5rem;
     color: white;
 }
 
@@ -23,6 +23,7 @@ body {
 
 .empty {
     text-align: center;
+    
     margin: 0%;
     color: white;
     font-size: 2rem;
@@ -45,7 +46,9 @@ body {
 }
 
 .plus{
-    cursor: pointer;    
+    cursor: pointer;  
+    margin-top: 4rem;  
+
 }
 
 #book_form {
@@ -62,10 +65,16 @@ body {
 .container {
     display: flex;
     flex-direction: row;
-    justify-content:space-between;
+    justify-content:left;
     width: 90%;
     padding-left: 5%;
     padding-right: 5%;
     flex-wrap: wrap;
     
+}
+
+header {
+    padding: 3rem;
+    margin-top: -1.5rem;
+
 }

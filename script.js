@@ -28,12 +28,11 @@ book_form.addEventListener('submit', (e) =>{
     let new_book = new Book(
                             book_form.title.value, 
                             book_form.description.value, 
-                            book_form.due_date.value, 
+                            new Date(book_form.due_date.value), 
                             book_form.priority.value
                             )
     ;
 
-    
     //add the book to the library
     library.push(new_book);
     //console.log(library);
@@ -47,7 +46,7 @@ book_form.addEventListener('submit', (e) =>{
         newCard.classList.add('card');
         newCard.innerHTML += `<h4>${new_book.title}</h4>`;
         newCard.innerHTML += `<p>${new_book.description}</p>`;
-        newCard.innerHTML += `<p>${new_book.due_date}</p>`;
+        newCard.innerHTML += `<p>${new_book.due_date.getUTCDate()}-${new_book.due_date.getUTCMonth()+1}-${new_book.due_date.getUTCFullYear()}</p>`;
         newCard.innerHTML += `<p>${new_book.priority}</p>`;
 
         const library_container = document.getElementsByClassName('container')[0];
