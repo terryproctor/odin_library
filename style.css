@@ -47,8 +47,6 @@ body {
 
 .plus{
     cursor: pointer;  
-    margin-top: 4rem;  
-
 }
 
 #book_form {
@@ -70,7 +68,6 @@ body {
     padding-left: 5%;
     padding-right: 5%;
     flex-wrap: wrap;
-    
 }
 
 header {
