@@ -32,7 +32,8 @@ task_form.addEventListener('submit', (e) =>{
                     newCard.innerHTML += `<p>${this.due_date.getUTCDate()}-${this.due_date.getUTCMonth()+1}-${this.due_date.getUTCFullYear()}</p>`;
                     newCard.innerHTML += `<p>${this.priority}</p>`;
                     newCard.innerHTML += `<button class="delete_btn">-</button>`;
-            
+
+                          
                     const library_container = document.getElementsByClassName('container')[0];
                     const empty = document.getElementsByClassName('empty')[0];
                     //add the new card to the library
@@ -41,11 +42,20 @@ task_form.addEventListener('submit', (e) =>{
 
             deleteCard() {
                 //remove card from list
-
-                //remove from tasks array
-                
+                let allCards = document.getElementsByClassName('filledCard');
+                for (let i=0; i<allCards.length; i++){
+                    if (allCards[i].firstChild.textContent === this.title
+                        && 
+                        allCards[i].childNodes[1].textContent === this.description){
+                        allCards[i].remove();
+                    }
+                    // console.log(allCards[i].firstChild.textContent);
+                }
             }
+
+            
         
+            
     }
 
     // console.log(Date.now())
@@ -53,11 +63,14 @@ task_form.addEventListener('submit', (e) =>{
                             task_form.title.value, 
                             task_form.description.value, 
                             new Date(task_form.due_date.value), 
-                            task_form.priority.value
-
-                            
+                            task_form.priority.value                         
                             )
     ;
+
+    //remove all the cards from the taskList
+    tasks.forEach(t => {
+        t.deleteCard();
+    });
 
     //add the task to the library
     tasks.push(new_task);
@@ -70,4 +83,13 @@ task_form.addEventListener('submit', (e) =>{
     
     //clear the form
     task_form.reset();
+
+    //tasks sort by priority
+    
+
+    //display the all task cards
+    tasks.forEach(t => {
+        t.displayCard();
+    }
+    )
 });

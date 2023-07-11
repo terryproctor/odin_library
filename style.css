@@ -1,16 +1,18 @@
 body {
-    background-color: rgb(238, 238, 255);
+    background-color: rgb(255, 123, 0);
+    color: white;
     padding: 0px;
     margin: 0px;
 }
 
 .card {
-    border: solid 1px lightgrey;
+    border: solid 0px lightgrey;
     background-color: rgb(135, 12, 236);
-    border-radius: 1rem;
+    border-radius: 1.2rem;
     min-height: 7rem;
     min-width: 20%;
-
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
     padding: 1.5rem;
     color: white;
 }
@@ -36,6 +38,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+    color: rgb(52, 51, 51);;
     
     /* background-color: rgba(0, 0, 0, 0.5); */
     background-color: rgba(98, 49, 67, 0.5);
