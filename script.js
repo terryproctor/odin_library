@@ -33,6 +33,14 @@ task_form.addEventListener('submit', (e) =>{
                     newCard.innerHTML += `<p>${this.priority}</p>`;
                     newCard.innerHTML += `<button class="delete_btn">-</button>`;
 
+                    newCard.getElementsByClassName('delete_btn')[0].addEventListener('click', () => {
+                        //remove the card from the library
+                        this.deleteCard();
+                        //remove the task from the tasks array
+                        tasks.splice(tasks.indexOf(this), 1);
+                    }
+                    );
+
                           
                     const library_container = document.getElementsByClassName('container')[0];
                     const empty = document.getElementsByClassName('empty')[0];
