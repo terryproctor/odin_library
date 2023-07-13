@@ -6,6 +6,8 @@ document.getElementsByClassName('plus')[0].addEventListener('click', () =>{
     // show the modal
     // console.log('clicked');
     document.getElementsByClassName('modal_background')[0].style.display = 'flex';
+    //default date is today
+    document.getElementById('due_date').valueAsDate = new Date();
 });
 
 
@@ -28,13 +30,24 @@ task_form.addEventListener('submit', (e) =>{
                     newCard.classList.add('card');
                     newCard.classList.add('filledCard');
                     newCard.innerHTML += `<h4>${this.title}</h4>`;
-                    newCard.innerHTML += `<p>${this.description}</p>`;
-                    newCard.innerHTML += `<p>${this.due_date.getUTCDate()}-${this.due_date.getUTCMonth()+1}-${this.due_date.getUTCFullYear()}</p>`;
-                    newCard.innerHTML += `<p>${this.priority}</p>`;
-                    newCard.innerHTML += `<button class="delete_btn">-</button>`;
 
+                    // only display title. Details button for additional info
+                    // newCard.innerHTML += `<p>${this.description}</p>`;
+                    // newCard.innerHTML += `<p>${this.due_date.getUTCDate()}-${this.due_date.getUTCMonth()+1}-${this.due_date.getUTCFullYear()}</p>`;
+                    // newCard.innerHTML += `<p>${this.priority}</p>`;
+
+                    newCard.innerHTML += `<button class="detail_btn">Details</button>`;
+                    newCard.getElementsByClassName('detail_btn')[0].addEventListener('click', () => {
+                        //show modal with task details
+                        //TO DO!!!!!!!!!!!!!!!!!!!!
+                    }
+                    );
+
+
+                    newCard.innerHTML += `<button class="delete_btn">-</button>`;
                     newCard.getElementsByClassName('delete_btn')[0].addEventListener('click', () => {
                         //remove the card from the library
+                        console.log('clicked')
                         this.deleteCard();
                         //remove the task from the tasks array
                         tasks.splice(tasks.indexOf(this), 1);
@@ -52,12 +65,12 @@ task_form.addEventListener('submit', (e) =>{
                 //remove card from list
                 let allCards = document.getElementsByClassName('filledCard');
                 for (let i=0; i<allCards.length; i++){
-                    if (allCards[i].firstChild.textContent === this.title
-                        && 
-                        allCards[i].childNodes[1].textContent === this.description){
+                    if (allCards[i].firstChild.textContent === this.title)
+                        // && 
+                        // allCards[i].childNodes[1].textContent === this.description)
+                        {
                         allCards[i].remove();
                     }
-                    // console.log(allCards[i].firstChild.textContent);
                 }
             }
 
@@ -101,3 +114,5 @@ task_form.addEventListener('submit', (e) =>{
     }
     )
 });
+
+
