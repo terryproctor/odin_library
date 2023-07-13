@@ -22,6 +22,8 @@ task_form.addEventListener('submit', (e) =>{
             this.description = description;
             this.due_date = due_date;
             this.priority = priority;
+            //unique id so only the right card is deleted not duplicates
+            this.uid = Date.now();
         }
             displayCard() {
                 //add the task cards to the list behind the empty card
@@ -30,6 +32,7 @@ task_form.addEventListener('submit', (e) =>{
                     newCard.classList.add('card');
                     newCard.classList.add('filledCard');
                     newCard.innerHTML += `<h4>${this.title}</h4>`;
+                    newCard.dateCreated = this.uid;
 
                     // only display title. Details button for additional info
                     // newCard.innerHTML += `<p>${this.description}</p>`;
@@ -47,7 +50,6 @@ task_form.addEventListener('submit', (e) =>{
                     newCard.innerHTML += `<button class="delete_btn">-</button>`;
                     newCard.getElementsByClassName('delete_btn')[0].addEventListener('click', () => {
                         //remove the card from the library
-                        console.log('clicked')
                         this.deleteCard();
                         //remove the task from the tasks array
                         tasks.splice(tasks.indexOf(this), 1);
@@ -65,9 +67,11 @@ task_form.addEventListener('submit', (e) =>{
                 //remove card from list
                 let allCards = document.getElementsByClassName('filledCard');
                 for (let i=0; i<allCards.length; i++){
-                    if (allCards[i].firstChild.textContent === this.title)
-                        // && 
-                        // allCards[i].childNodes[1].textContent === this.description)
+                    if (allCards[i].firstChild.textContent === this.title
+                         &&
+                        allCards[i].dateCreated === this.uid
+                        )
+                        
                         {
                         allCards[i].remove();
                     }
